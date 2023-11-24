@@ -93,6 +93,7 @@ def start_game():
     player_name = player_name_entry.get()
     target_number = random.randint(1, 100)
     guesses = 0
+    # print(target_number)
 
     start_button.config(state=tk.DISABLED)
     reset_button.config(state=tk.NORMAL)
@@ -132,7 +133,7 @@ def check_guess():
     else:
         hint_box.config(text="Go Lower!")
 
-    if guesses_left_value == 0:
+    if (guesses_left_value == 0) and (guess != target_number):
         hint_box.config(text=f"Sorry, {player_name}! You've run out of guesses. The correct number was {target_number}.")
         save_result("Loss", guesses)
         guess_button.config(state=tk.DISABLED)
